@@ -7,7 +7,8 @@ if [[ "$COOKIEFILE" == "true" ]]; then
 echo "rpccookiefile=/root/.bitcoin/.cookie
 rpcauth=$RPCAUTH"
 else
-echo "rpcauth=$RPCAUTH
+#echo "rpcauth=$RPCAUTH
+echo "
 rpcuser=$RPCUSER
 rpcpassword=$RPCPASSWORD"
 fi
