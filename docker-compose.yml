@@ -9,7 +9,7 @@ volumes:
 services:
   indexer:
     container_name: btc-indexer
-    image: blockcore/indexer:0.2.44
+    image: blockcore/indexer:0.2.49
     mem_limit: 1024m
     cpus: 0.200
     environment:
