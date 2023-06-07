@@ -20,7 +20,7 @@ services:
       LETSENCRYPT_HOST: btc.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: http://+:9910
-    command: ["--chain=BTC", "--Network:RPCPort=38332"]
+    command: ["--chain=TBTC"]
     restart: unless-stopped
     depends_on:
       mongo:
@@ -60,7 +60,7 @@ services:
       RPCUSER: ${RPCUSER:-rpcuser}
       RPCPASSWORD: ${RPCPASSWORD:-rpcpassword}
     ports:
-      - 38333:38333 # Make this a public node.
+      - 18333:18333 # Make this a public node.
     networks:
       - btcnetwork
 
