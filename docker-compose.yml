@@ -52,7 +52,7 @@ services:
     environment:
       UACOMMENT: $UACOMMENT
       BLOCKPRODUCTIONDELAY: ${BLOCKPRODUCTIONDELAY:-60}
-      MINERENABLED: ${MINERENABLED:-1}
+      MINERENABLED: ${MINERENABLED:-0}
       NBITS: $NBITS
       MINETO: ${MINETO:-tb1qk4pq0rh75qtph47wlufhyss43flhvhvwe4zt8a}
       PRIVKEY: ${PRIVKEY:-cRz3Ci2aUNmdP4pViSM8LafwKHZmvn4X6gjeCXzVkBYBLhzA3uFC} # private key path is m/84'/1'/0'/0/0 of test wallet mnemonic "margin radio diamond leg loud street announce guitar video shiver speed eyebrow"
