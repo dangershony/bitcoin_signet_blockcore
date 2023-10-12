@@ -7,9 +7,10 @@ volumes:
     name: btc-data
 
 services:
+
   indexer:
     container_name: tbtc-indexer
-    image: blockcore/indexer:0.2.49
+    image: davidgershonyhub/angor_indexer:dev
     mem_limit: 1024m
     cpus: 0.200
     environment:
@@ -35,9 +36,10 @@ services:
 
   chain:
     container_name: tbtc-chain
-    image: blockcore/bitcoin-signet:custom
+    #image: blockcore/bitcoin-signet:latest
+    build: .
     mem_limit: 10240m
-    cpus: 0.200
+    cpus: 0.8 # how many cpus to use
     healthcheck:
       test: ["CMD", "bitcoin-cli", "ping"]
       interval: 10s
@@ -50,8 +52,8 @@ services:
       - blockchain:/root/.bitcoin
     environment:
       UACOMMENT: $UACOMMENT
-      BLOCKPRODUCTIONDELAY: ${BLOCKPRODUCTIONDELAY:-60}
-      MINERENABLED: ${MINERENABLED:-0} # change this to 1 if this node needs to mine (however for simplicity there should only be one mining node per challenge)
+      BLOCKPRODUCTIONDELAY: ${BLOCKPRODUCTIONDELAY:-30}
+      MINERENABLED: ${MINERENABLED:-1} # change this to 1 if this node needs to mine (however for simplicity there should only be one mining node per challenge)
       NBITS: $NBITS
       MINETO: ${MINETO:-tb1qk4pq0rh75qtph47wlufhyss43flhvhvwe4zt8a}
       PRIVKEY: ${PRIVKEY:-cRz3Ci2aUNmdP4pViSM8LafwKHZmvn4X6gjeCXzVkBYBLhzA3uFC} # private key path is m/84'/1'/0'/0/0 of test wallet mnemonic "margin radio diamond leg loud street announce guitar video shiver speed eyebrow"
@@ -61,6 +63,9 @@ services:
       RPCPASSWORD: ${RPCPASSWORD:-rpcpassword}
     ports:
       - 18333:18333 # Make this a public node.
+      - 8333:8333 # Make this a public node.
+      - 38333:38333 # Make this a public node.
+      - 38332:38332
     networks:
       - btcnetwork
 
@@ -82,6 +87,8 @@ services:
     volumes:
       - database:/data/db
       - database:/data/configdb
+    ports:
+      - 27017:27017 # Make this a public node.
     networks:
       - btcnetwork
       

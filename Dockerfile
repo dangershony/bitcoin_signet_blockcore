@@ -1,6 +1,6 @@
 FROM debian:buster-slim as builder
 
-ARG BITCOIN_VERSION=${BITCOIN_VERSION:-24.0.1}
+#ARG BITCOIN_VERSION=${BITCOIN_VERSION:-24.0.1}
 ARG TRIPLET=${TRIPLET:-"x86_64-linux-gnu"}
 
 RUN  apt-get update && \
@@ -8,7 +8,16 @@ RUN  apt-get update && \
 WORKDIR /tmp
 
 # install bitcoin binaries
-RUN BITCOIN_URL="https://bitcoincore.org/bin/bitcoin-core-${BITCOIN_VERSION}/bitcoin-${BITCOIN_VERSION}-${TRIPLET}.tar.gz" && \
+# RUN BITCOIN_URL="https://bitcoincore.org/bin/bitcoin-core-${BITCOIN_VERSION}/bitcoin-${BITCOIN_VERSION}-${TRIPLET}.tar.gz" && \
+#      BITCOIN_FILE="bitcoin-${BITCOIN_VERSION}-${TRIPLET}.tar.gz" && \
+#      wget -qO "${BITCOIN_FILE}" "${BITCOIN_URL}" && \
+#      mkdir -p bin && \
+#      tar -xzvf "${BITCOIN_FILE}" -C /tmp/bin --strip-components=2 "bitcoin-${BITCOIN_VERSION}/bin/bitcoin-cli" "bitcoin-${BITCOIN_VERSION}/bin/bitcoind" "bitcoin-${BITCOIN_VERSION}/bin/bitcoin-wallet" "bitcoin-${BITCOIN_VERSION}/bin/bitcoin-util"
+# FROM debian:buster-slim as custom-signet-bitcoin
+
+# 30 sec blocks repo
+ARG BITCOIN_VERSION="d8434da3c14e"
+RUN BITCOIN_URL="https://github.com/benthecarman/bitcoin/releases/download/custom-signet-blocktime/bitcoin-${BITCOIN_VERSION}-${TRIPLET}.tar.gz" && \
      BITCOIN_FILE="bitcoin-${BITCOIN_VERSION}-${TRIPLET}.tar.gz" && \
      wget -qO "${BITCOIN_FILE}" "${BITCOIN_URL}" && \
      mkdir -p bin && \

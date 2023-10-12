@@ -7,8 +7,7 @@ if [[ "$COOKIEFILE" == "true" ]]; then
 echo "rpccookiefile=/root/.bitcoin/.cookie
 rpcauth=$RPCAUTH"
 else
-#echo "rpcauth=$RPCAUTH
-echo "
+echo "rpcauth=$RPCAUTH
 rpcuser=$RPCUSER
 rpcpassword=$RPCPASSWORD"
 fi
@@ -28,10 +27,13 @@ if [[ "$EXTERNAL_IP" != "" ]]; then
 fi
 
 echo "[signet]
+rest=1
 daemon=1
 listen=1
 server=1
+acceptnonstdtxn=1
 discover=1
+signetblocktime=$BLOCKPRODUCTIONDELAY
 signetchallenge=$SIGNETCHALLENGE
 zmqpubrawblock=$ZMQPUBRAWBLOCK
 zmqpubrawtx=$ZMQPUBRAWTX
