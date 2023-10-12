@@ -69,6 +69,9 @@ COPY *.sh /usr/local/bin/
 COPY rpcauth.py /usr/local/bin/rpcauth.py
 RUN pip3 install setuptools
 
+RUN chmod +x /usr/local/bin/miner
+RUN chmod +x /usr/local/bin/*.*
+
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 CMD ["run.sh"]
