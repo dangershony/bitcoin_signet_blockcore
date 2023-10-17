@@ -16,11 +16,11 @@ services:
     mem_limit: 1024m
     cpus: 0.200
     environment:
-      VIRTUAL_HOST: btc.indexer.blockcore.net
+      VIRTUAL_HOST: tbtc.indexer.blockcore.net
       VIRTUAL_PORT: 9910
       VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: btc.indexer.blockcore.net
+      LETSENCRYPT_HOST: tbtc.indexer.blockcore.net
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: http://+:9910
     command: ["--chain=TBTC","--Network:RPCPort=38332"] # override rpcport in signet its 38332
@@ -100,11 +100,11 @@ services:
     mem_limit: 256m
     cpus: 0.200
     environment:
-      VIRTUAL_HOST: explorer.coinvault.io
+      VIRTUAL_HOST: explorer.angor.io
       VIRTUAL_PORT: 9911
       VIRTUAL_NETWORK: proxy
       VIRTUAL_PROTO: http
-      LETSENCRYPT_HOST: explorer.coinvault.io
+      LETSENCRYPT_HOST: explorer.angor.io
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: http://+:9910
     command: ["--chain=BTC"]
@@ -121,11 +121,11 @@ services:
     mem_limit: 1024m
     cpus: 0.200
     environment:
-      VIRTUAL_HOST: app.angor.io
+      VIRTUAL_HOST: test.angor.io
       VIRTUAL_PORT: 5500
       VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: app.angor.io
+      LETSENCRYPT_HOST: test.angor.io
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: http://+:5500
       Logging__LogLevel__Default: Debug
