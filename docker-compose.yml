@@ -13,7 +13,7 @@ services:
   indexer:
     container_name: tbtc-indexer
     image: davidgershonyhub/angor_indexer:dev
-    mem_limit: 1024m
+    mem_limit: 2048m
     cpus: 0.200
     environment:
       VIRTUAL_HOST: tbtc.indexer.angor.io
@@ -40,7 +40,7 @@ services:
     container_name: tbtc-chain
     #image: blockcore/bitcoin-signet:latest
     build: .
-    mem_limit: 10240m
+    mem_limit: 2048m
     cpus: 0.8 # how many cpus to use
     healthcheck:
       test: ["CMD", "bitcoin-cli", "ping"]
