@@ -152,7 +152,7 @@ services:
       - 7777:7777
     volumes:
       - ./strfry/:/app/strfry-db
-      - ./strfry//strfry.conf:/strfry.conf
+      - ./strfry/strfry.conf:/etc/strfry.conf
     networks:
       - proxy
 
