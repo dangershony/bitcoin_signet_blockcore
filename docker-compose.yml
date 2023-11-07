@@ -138,6 +138,24 @@ services:
     networks:
       - proxy
 
+  strfry-relay:
+    container_name: strfry-relay
+    image: dockurr/strfry:latest
+    environment:
+      VIRTUAL_HOST: relay.angor.io
+      VIRTUAL_PORT: 7777
+      VIRTUAL_PROTO: http
+      VIRTUAL_NETWORK: proxy
+      LETSENCRYPT_HOST: relay.angor.io
+      LETSENCRYPT_EMAIL: admin@blockcore.net
+    ports:
+      - 7777:7777
+    volumes:
+      - ./strfry/:/app/strfry-db
+      - ./strfry//strfry.conf:/strfry.conf
+    networks:
+      - proxy
+
 networks:
   btcnetwork:
     external: false
