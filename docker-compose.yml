@@ -156,6 +156,20 @@ services:
     networks:
       - proxy
 
+  web:
+    image: getumbrel/umbrel-nostr-relay
+    user: "1000:1000"
+    container_name: public-relay-web
+    restart: on-failure
+    environment:
+      RELAY_HOST: "strfry-relay"
+      RELAY_PORT: "7777"
+    ports:
+      - 3000:3000
+    networks:
+      - proxy
+
+
 networks:
   btcnetwork:
     external: false
