@@ -162,16 +162,10 @@ services:
     container_name: public-relay-web
     restart: on-failure
     environment:
-      VIRTUAL_HOST: web.relay.angor.io
-      VIRTUAL_PORT: 3000
-      VIRTUAL_PROTO: http
-      VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: web.relay.angor.io
-      LETSENCRYPT_EMAIL: admin@blockcore.net
       RELAY_HOST: "strfry-relay"
       RELAY_PORT: "7777"
-    #ports:
-    #  - 3000:3000
+    ports:
+      - 3000:3000 # to access the web view use relay.angor.io:3000
     networks:
       - proxy
 
