@@ -30,8 +30,8 @@ services:
         condition: service_healthy
       chain:
         condition: service_healthy
-    ports:
-      - 9910:9910 # Make this a public node.
+     #ports:
+     # - 9910:9910 # Make this a public node.
     networks:
       - btcnetwork
       - proxy
@@ -89,8 +89,8 @@ services:
     volumes:
       - database:/data/db
       - database:/data/configdb
-    ports:
-      - 27017:27017 # Make this a public node.
+    #ports:
+    #  - 27017:27017 # Make this a public node.
     networks:
       - btcnetwork
       
@@ -109,8 +109,8 @@ services:
       ASPNETCORE_URLS: http://+:9910
     command: ["--chain=BTC"]
     restart: unless-stopped
-    ports:
-      - 9911:9911 # Make this a public node.
+    #ports:
+    #  - 9911:9911 # Make this a public node.
     networks:
       - proxy
       - btcnetwork
@@ -131,8 +131,8 @@ services:
       Logging__LogLevel__Default: Debug
       DataConfig__UseDefaultPath: "true"
     restart: unless-stopped
-    ports:
-      - "5500:5500"
+    #ports:
+    #  - 5500:5500
     volumes:
       - database1:/root/.aspnet
     networks:
