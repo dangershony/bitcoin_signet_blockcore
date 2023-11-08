@@ -182,7 +182,7 @@ services:
     volumes:
       - ${PWD}/data/relay-proxy:/app/data
     depends_on:
-      - relay
+      - strfry-relay
 
 networks:
   btcnetwork:
