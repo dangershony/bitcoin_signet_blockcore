@@ -164,25 +164,25 @@ services:
     environment:
       RELAY_HOST: "strfry-relay"
       RELAY_PORT: "7777"
-      RELAY_PROXY_HOST: "relay-proxy"
-      RELAY_PROXY_PORT: "80"
+      #RELAY_PROXY_HOST: "relay-proxy"
+      #RELAY_PROXY_PORT: "80"
     ports:
       - 3000:3000 # to access the web view use relay.angor.io:3000
     networks:
       - proxy
 
-  relay-proxy:
-    image: getumbrel/umbrel-nostr-relay-proxy
-    #build: ./relay-proxy
-    user: "1000:1000"
-    restart: on-failure
-    environment:
-      RELAY_HOST: "strfry-relay"
-      RELAY_PORT: "7777"
-    volumes:
-      - ${PWD}/data/relay-proxy:/app/data
-    depends_on:
-      - strfry-relay
+  #relay-proxy:
+  #  image: getumbrel/umbrel-nostr-relay-proxy
+  #  #build: ./relay-proxy
+  #  user: "1000:1000"
+  #  restart: on-failure
+  #  environment:
+  #    RELAY_HOST: "strfry-relay"
+  #    RELAY_PORT: "7777"
+  #  volumes:
+  #    - ${PWD}/data/relay-proxy:/app/data
+  #  depends_on:
+  #    - strfry-relay
 
 networks:
   btcnetwork:
