@@ -12,7 +12,7 @@ services:
 
   indexer:
     container_name: tbtc-indexer
-    image: davidgershonyhub/angor_indexer:dev.7
+    image: davidgershonyhub/angor_indexer:dev.8
     mem_limit: 2048m
     cpus: 0.200
     environment:
