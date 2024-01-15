@@ -182,8 +182,8 @@ services:
     #ports:
     #  - 7777:7777
     volumes:
-      - ./strfry1/:/app/strfry-db
-      - ./strfry1/strfry.conf:/etc/strfry.conf
+      - ./strfry2/:/app/strfry-db
+      - ./strfry2/strfry.conf:/etc/strfry.conf
     networks:
       - proxy
 
