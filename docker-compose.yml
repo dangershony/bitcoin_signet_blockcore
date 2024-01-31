@@ -107,7 +107,7 @@ services:
       LETSENCRYPT_HOST: explorer.angor.io
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: http://+:9910
-    command: ["--chain=BTC"]
+    command: ["--chain=TBTC"]
     restart: unless-stopped
     #ports:
     #  - 9911:9911 # Make this a public node.
