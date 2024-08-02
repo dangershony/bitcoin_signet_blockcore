@@ -121,7 +121,7 @@ services:
     mem_limit: 1024m
     cpus: 0.200
     environment:
-      VIRTUAL_HOST: test.angor.io
+      VIRTUAL_HOST: faucet.angor.io
       VIRTUAL_PORT: 5500
       VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
