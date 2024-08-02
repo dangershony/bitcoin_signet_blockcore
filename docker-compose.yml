@@ -125,7 +125,7 @@ services:
       VIRTUAL_PORT: 5500
       VIRTUAL_PROTO: http
       VIRTUAL_NETWORK: proxy
-      LETSENCRYPT_HOST: test.angor.io
+      LETSENCRYPT_HOST: faucet.angor.io
       LETSENCRYPT_EMAIL: admin@blockcore.net
       ASPNETCORE_URLS: http://+:5500
       Logging__LogLevel__Default: Debug
